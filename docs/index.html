@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home – Egor Dev</title>
+    <meta name="description" content="Backend engineer, system design enthusiast, and technical writer.">
+    <meta name="og:type" content="website">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #fafafa;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #d4d4d4;
+                background: #1e1e1e;
+            }
+        }
+
+        header {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            header {
+                border-bottom-color: #3e3e42;
+            }
+        }
+
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        h1.site-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .site-tagline {
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        nav {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: inherit;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: #667a8c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav a:hover {
+                color: #7a92ad;
+            }
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        .content {
+            line-height: 1.8;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+        }
+
+        .content a {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .content a:hover {
+            color: #667a8c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content a {
+                color: #569cd6;
+            }
+
+            .content a:hover {
+                color: #7a92ad;
+            }
+        }
+
+        .content ul,
+        .content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content blockquote {
+            border-left: 3px solid #e5e5e5;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content blockquote {
+                border-left-color: #3e3e42;
+            }
+        }
+
+        .content code {
+            background: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            font-size: 0.9rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content code {
+                background: #252526;
+                color: #ce9178;
+            }
+        }
+
+        .content pre {
+            background: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content pre {
+                background: #1e1e1e;
+                border: 1px solid #3e3e42;
+            }
+        }
+
+        .content pre code {
+            background: none;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .post-list {
+            list-style: none;
+        }
+
+        .post-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        @media (prefers-color-scheme: de3e42k) {
+            .post-item {
+                border-bottom-color: #333;
+            }
+        }
+
+        .post-item:last-child {
+            border-bottom: none;
+        }
+
+        .post-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .post-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .post-title a:hover {
+            color: #667a8c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .post-title a:hover {
+                color: #7a92ad;
+            }
+        }
+
+        .post-date {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-excerpt {
+            opacity: 0.85;
+        }
+
+        footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (prefers-color-schemee3e42dark) {
+            footer {
+                border-top-color: #333;
+            }
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #667a8c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .back-link {
+                color: #569cd6;
+            }
+
+            .back-link:hover {
+                color: #7a92ad;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 15px;
+            }
+
+            h1.site-title {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            main {
+                padding: 0 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="site-title"><a href="/" style="color: inherit; text-decoration: none;">egor.dev</a></h1>
+            <p class="site-tagline">Backend engineering, system design, and technical writing.</p>
+            <nav>
+                <a href="/">About</a>
+                <a href="/posts/">Posts</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="content">
+            <h1 id="about-me">About Me</h1>
+<p>I'm a backend engineer passionate about building scalable systems, writing clean code, and sharing technical knowledge.</p>
+<h2 id="background">Background</h2>
+<p>With years of experience in distributed systems and cloud architecture, I've worked on problems ranging from real-time data processing to high-throughput API design. I believe in pragmatic engineering—solving real problems with minimal complexity.</p>
+<h2 id="interests">Interests</h2>
+<ul>
+<li><strong>System Design</strong> – Designing scalable, resilient architectures</li>
+<li><strong>Python &amp; Backend Development</strong> – Building robust server-side applications</li>
+<li><strong>Technical Writing</strong> – Making complex concepts accessible</li>
+<li><strong>DevOps &amp; Infrastructure</strong> – Automating deployment and operations</li>
+<li><strong>Open Source</strong> – Contributing to and maintaining community projects</li>
+</ul>
+<h2 id="this-site">This Site</h2>
+<p>This portfolio is built with a custom static site generator written in Python. It demonstrates the principles I advocate: simplicity, performance, and maintainability. No frameworks, no unnecessary complexity—just clean, pragmatic engineering.</p>
+<h2 id="lets-work-together">Let's Work Together</h2>
+<p>I'm always interested in discussing backend architecture, engineering challenges, or collaboration opportunities. Reach out if you'd like to talk!</p>
+<hr />
+<p><strong>Technical Stack:</strong> Python, Jinja2, Markdown, GitHub Pages, HTML/CSS</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Egor. All rights reserved.</p>
+    </footer>
+</body>
+</html>
