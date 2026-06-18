@@ -49,4 +49,4 @@ I've just opened up the repository for Halepa. The core engine is fully function
 
 If your team is looking for a lightweight, zero-cost alert bridge, give it a look, spin it up in your own sandbox, or drop a PR to add support for your team's favorite communication channels.
 
-🔗 [Halepa Repository](https://lnkd.in/eSgiG5mE)
+🔗 [Halepa Repository](https://github.com/NGUgeneral/halepa)

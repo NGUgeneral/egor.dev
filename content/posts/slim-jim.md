@@ -44,4 +44,4 @@ By wrapping these two tools in a clean Strategy pattern, I built the pipeline fo
 Currently, I've wrapped the engine with FastAPI and Mangum, making it an ultra-fast, drop-in serverless microservice ready for AWS Lambda deployments. However, the architecture is so decoupled that if you want to embed it directly into your own codebase as a standalone feature, you can drop the API layer entirely—BeautifulSoup and ReportLab are the only true dependencies you need.
 
 Check it out, share your thoughts, drop a PR:
-🔗 [Slim Jim Repository](https://lnkd.in/eMxc8gC2)
+🔗 [Slim Jim Repository](https://github.com/NGUgeneral/slim-jim)

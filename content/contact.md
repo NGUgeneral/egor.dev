@@ -8,7 +8,7 @@ I'm available for high-velocity freelance, contract, and interim engagements.
 
 ## Direct Contact
 
-**Email:** [egor@egor.dev](mailto:egor@egor.dev)
+**Email:** [egor.osaulenko@gmail.com](mailto:egor.osaulenko@gmail.com)
 
 Feel free to reach out with:
 - Backend architecture consulting
