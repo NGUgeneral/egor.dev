@@ -11,12 +11,14 @@
             --body-bg: #fafafa;
             --body-color: #555555;
             --border-color: #e5e5e5;
-            --accent-primary: #2db898;
-            --accent-hover: #2db898;
+            --accent-primary: #d1347a;
+            --accent-hover: #d1347a;
             --link-color: #0066cc;
             --code-bg: #f0f0f0;
             --code-color: inherit;
             --pre-border: none;
+            --header-pattern: url("/assets/background/memphis-pattern-header-light.svg");
+            --pattern-opacity: 0.1;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -30,6 +32,8 @@
                 --code-bg: #252526;
                 --code-color: #ce9178;
                 --pre-border: 1px solid #3e3e42;
+                --header-pattern: url("/assets/background/memphis-pattern-header-dark.svg");
+                --pattern-opacity: 0.05;
             }
         }
 
@@ -53,14 +57,31 @@
 
         header {
             border-bottom: 1px solid var(--border-color);
-            padding: 2rem 0;
+            padding: 4rem 0;
             margin-bottom: 2rem;
+            position: relative; /* Establish tracking coordinates for pattern */
+            background-color: var(--body-bg);
+            overflow: hidden;
+        }
+
+        /* Isolated Pattern Engine for Header */
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: var(--header-pattern);
+            background-repeat: repeat;
+            opacity: var(--pattern-opacity);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .header-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         h1.site-title {
@@ -275,10 +296,30 @@
 
         footer {
             border-top: 1px solid var(--border-color);
-            padding: 2rem 0;
+            padding: 3rem 0;
             margin-top: 3rem;
             text-align: center;
             font-size: 0.9rem;
+            position: relative;
+            background-color: var(--body-bg);
+            overflow: hidden;
+        }
+
+        /* Isolated Pattern Engine for Footer */
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: var(--header-pattern);
+            background-repeat: repeat;
+            opacity: var(--pattern-opacity);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        footer p {
+            position: relative;
+            z-index: 1;
             opacity: 0.7;
         }
 
@@ -297,6 +338,14 @@
         @media (max-width: 600px) {
             body {
                 font-size: 15px;
+            }
+
+            header {
+                padding: 1.5rem 0;
+            }
+
+            header::before, footer::before {
+                background-size: 120px 120px;
             }
 
             h1.site-title {
