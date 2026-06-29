@@ -55,6 +55,12 @@
             color: var(--body-color);
             background: var(--body-bg);
             transition: background-color 0.3s, color 0.3s;
+
+            /* STICKY FOOTER ENGINE */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Takes up at least the full viewport height */
+            min-height: 100dvh; /* Dynamic viewport height fallback specifically for mobile browser UI bars */
         }
 
         header {
@@ -64,6 +70,7 @@
             position: relative; /* Establish tracking coordinates for pattern */
             background-color: var(--body-bg);
             overflow: hidden;
+            flex-shrink: 0; /* Prevents the header from compressing */
         }
 
         /* Isolated Pattern Engine for Header */
@@ -123,6 +130,9 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 1.5rem 3rem;
+
+            /* THE MAGIC LINE: Absorbs all remaining vertical whitespace */
+            flex-grow: 1;
         }
 
         .content {
@@ -305,6 +315,7 @@
             position: relative;
             background-color: var(--body-bg);
             overflow: hidden;
+            flex-shrink: 0; /* Prevents the footer from compressing */
         }
 
         footer::before {
